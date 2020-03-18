@@ -19,6 +19,8 @@ var (
 )
 
 func main() {
+	flag.Parse()
+
 	gutil.LogInit(*debugFlag, "./logs")
 
 	//获取当前显示器大小
