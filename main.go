@@ -52,6 +52,11 @@ func roleOperation() {
 		glog.Error(errMessage)
 		return
 	}
+	if len(wowPidArray) == 0 {
+		errMessage = "未查询到wow进程"
+		glog.Error(errMessage)
+		return
+	}
 	for _, wow := range wowPidArray {
 		//窗口置顶操作
 		err = robotgo.ActivePID(wow)
