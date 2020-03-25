@@ -45,8 +45,8 @@ func script() {
 }
 
 func roleOperation() {
-			//线程等待3秒 使窗口置顶操作正常进行
-		time.Sleep(3 * time.Second)
+		//线程等待10秒 使窗口置顶操作正常进行
+		time.Sleep(10 * time.Second)
 
 		//将鼠标移动到屏幕中央
 		robotgo.MoveMouse(screenWidth/2, screenHeight/2)
