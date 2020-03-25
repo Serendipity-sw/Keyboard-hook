@@ -2,7 +2,6 @@ package main
 
 import (
 	"flag"
-	"fmt"
 	"github.com/go-vgo/robotgo"
 	"github.com/smtc/glog"
 	"github.com/swgloomy/gutil"
@@ -46,28 +45,7 @@ func script() {
 }
 
 func roleOperation() {
-	var errMessage string
-	//检查当前系统启动了多少个wow
-	wowPidArray, err := robotgo.FindIds("Wowclassic")
-	if err != nil {
-		errMessage = fmt.Sprintf("检查wow进程失败.......错误消息: %s \n", err.Error())
-		glog.Error(errMessage)
-		return
-	}
-	if len(wowPidArray) == 0 {
-		errMessage = "未查询到wow进程"
-		glog.Error(errMessage)
-		return
-	}
-	for _, wow := range wowPidArray {
-		//窗口置顶操作
-		err = robotgo.ActivePID(wow)
-		if err != nil {
-			errMessage = fmt.Sprintf("窗口置顶操作失败! 请检查窗口是否被最小化.......wow进程ID: %d 错误消息: %s \n", wow, err.Error())
-			glog.Error(errMessage)
-			continue
-		}
-		//线程等待3秒 使窗口置顶操作正常进行
+			//线程等待3秒 使窗口置顶操作正常进行
 		time.Sleep(3 * time.Second)
 
 		//将鼠标移动到屏幕中央
@@ -105,5 +83,4 @@ func roleOperation() {
 
 		//施放一次快捷键技能 对自己  ctrl + s  最好为骑马快捷键或群疗快捷键 或者 3分钟内的大招 凡是一切不需要选中目标施放的技能都可以
 		robotgo.KeyTap("s", "lctrl")
-	}
 }
