@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"github.com/go-vgo/robotgo"
 	"github.com/smtc/glog"
@@ -14,10 +15,13 @@ import (
 var (
 	screenWidth  int
 	screenHeight int
+	debugFlag    = flag.Bool("d", false, "debug mode") //是否为调试模式
 )
 
 func main() {
-	gutil.LogInit(false, "./logs")
+	flag.Parse()
+
+	gutil.LogInit(*debugFlag, "./logs")
 
 	//获取当前显示器大小
 	screenWidth, screenHeight = robotgo.GetScaleSize()
@@ -48,7 +52,11 @@ func roleOperation() {
 	if err != nil {
 		errMessage = fmt.Sprintf("检查wow进程失败.......错误消息: %s \n", err.Error())
 		glog.Error(errMessage)
-		fmt.Print(errMessage)
+		return
+	}
+	if len(wowPidArray) == 0 {
+		errMessage = "未查询到wow进程"
+		glog.Error(errMessage)
 		return
 	}
 	for _, wow := range wowPidArray {
@@ -56,7 +64,7 @@ func roleOperation() {
 		err = robotgo.ActivePID(wow)
 		if err != nil {
 			errMessage = fmt.Sprintf("窗口置顶操作失败! 请检查窗口是否被最小化.......wow进程ID: %d 错误消息: %s \n", wow, err.Error())
-			glog.Error("窗口置顶操作失败! 请检查")
+			glog.Error(errMessage)
 			continue
 		}
 		//线程等待3秒 使窗口置顶操作正常进行
