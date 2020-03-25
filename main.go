@@ -81,6 +81,14 @@ func roleOperation() {
 		//结束人物移动
 		robotgo.KeyToggle("w", "up")
 
+		time.Sleep(3 * time.Second)
+		//操作人物往右移动
+		robotgo.KeyToggle("d", "down")
+		//移动三秒钟
+		time.Sleep(3 * time.Second)
+		//结束人物移动
+		robotgo.KeyToggle("d", "up")
+
 		time.Sleep(2 * time.Second)
 		//控制人物跳动一次
 		robotgo.KeyTap("space")
@@ -89,6 +97,5 @@ func roleOperation() {
 
 		//施放一次快捷键技能 对自己  ctrl + s  最好为骑马快捷键或群疗快捷键 或者 3分钟内的大招 凡是一切不需要选中目标施放的技能都可以
 		robotgo.KeyTap("s", "lctrl")
-
 	}
 }
