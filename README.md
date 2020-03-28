@@ -1,9 +1,24 @@
 # Keyboard-hook
 
-防暂离工具,工具调用键盘及鼠标事件,防止被检测
+## 配置文件说明
 
->> 注意游戏启动后请勿最小化窗口并保持当前窗口处于置顶,切记
->
+其中config.json为程序配置文件
+
+配置文件字段说明:
+
+```
+{
+    isStartBattle  是否需要程序启动战网
+    BattlePath     战网路径
+    baiduAPIKey    百度api key
+    baiduSecretKey 百度secretkey码
+}
+```
+
+百度文字识别api key 及 secret key 申请教程 [教程地址](https://jingyan.baidu.com/article/49ad8bcefe65bd5834d8fad3.html)
+
+魔兽登陆 排队 防暂离工具,工具调用键盘及鼠标事件,防止被检测
+
 >> 本软件需借助MinGW-w64 第三方工具包
 >
 >> MinGW-w64 [下载地址](http://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win32/Personal%20Builds/mingw-builds/installer/mingw-w64-install.exe/download)
