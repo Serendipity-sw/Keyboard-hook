@@ -27,8 +27,6 @@
 >
 >> MinGW-w64 [安装手册](https://www.cnblogs.com/findumars/p/8289454.html) 
 
->> 1. 启动并进入游戏
->> 2. 双击Keyboard-hook.exe 启动程序
->> 3. 10秒内切换到游戏界面
+>> 程序将自行启动战网并登陆
 >
 > 本人比较懒. 暂离工具运行轨迹,请查阅 main.go 源代码.  内有中文注释
